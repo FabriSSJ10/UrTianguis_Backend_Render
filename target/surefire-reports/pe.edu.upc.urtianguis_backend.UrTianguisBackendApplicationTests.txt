@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: pe.edu.upc.urtianguis_backend.UrTianguisBackendApplicationTests
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 19.22 s -- in pe.edu.upc.urtianguis_backend.UrTianguisBackendApplicationTests
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 29.64 s -- in pe.edu.upc.urtianguis_backend.UrTianguisBackendApplicationTests
