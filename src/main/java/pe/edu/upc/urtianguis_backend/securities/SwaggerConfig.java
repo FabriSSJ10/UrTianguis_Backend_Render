@@ -20,7 +20,7 @@ public class SwaggerConfig {
                                 .type(SecurityScheme.Type.HTTP)
                                 .scheme("bearer")
                                 .bearerFormat("JWT")))
-                        .addSecurityItem(new SecurityRequirement().addList("Ingrese Token:"))
-        .servers(List.of(new Server().url("https://urtianguis-backend-prueba.onrender.com")));
+                        .addSecurityItem(new SecurityRequirement().addList("Ingrese Token:"));
+        //.servers(List.of(new Server().url("https://urtianguis-backend-prueba.onrender.com")));
     }
 }
