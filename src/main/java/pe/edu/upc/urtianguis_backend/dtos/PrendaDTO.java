@@ -13,6 +13,7 @@ public class PrendaDTO {
     private String Talla;
     private int Stock;
     private int Veces_usada;
+    private String Imagen;
     private LocalDate I_fecha_creacion;
     private LocalDate I_fecha_modificacion;
     private String I_creado_por;
@@ -76,6 +77,14 @@ public class PrendaDTO {
         Veces_usada = veces_usada;
     }
 
+    public String getImagen() {
+        return Imagen;
+    }
+
+    public void setImagen(String imagen) {
+        Imagen = imagen;
+    }
+
     public LocalDate getI_fecha_creacion() {
         return I_fecha_creacion;
     }
@@ -116,7 +125,7 @@ public class PrendaDTO {
         Tp = tp;
     }
 
-    public Tienda getTii() {
+    public Tienda getTi() {
         return Ti;
     }
 

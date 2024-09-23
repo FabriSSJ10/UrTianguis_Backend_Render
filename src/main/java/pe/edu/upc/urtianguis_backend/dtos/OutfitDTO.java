@@ -6,7 +6,7 @@ import pe.edu.upc.urtianguis_backend.entities.Usuario;
 import java.time.LocalDate;
 
 public class OutfitDTO {
-    private int outfit;
+    private int Id_outfit;
     private String Nombre;
     private String Descripcion;
     private int Calificacion;
@@ -19,12 +19,20 @@ public class OutfitDTO {
     private Prenda Pr;
     private Tipo_Ocasion To;
 
-    public int getOutfit() {
-        return outfit;
+    public int getId_outfit() {
+        return Id_outfit;
     }
 
-    public void setOutfit(int outfit) {
-        this.outfit = outfit;
+    public void setId_outfit(int id_outfit) {
+        Id_outfit = id_outfit;
+    }
+
+    public Tipo_Ocasion getTo() {
+        return To;
+    }
+
+    public void setTo(Tipo_Ocasion to) {
+        To = to;
     }
 
     public String getNombre() {

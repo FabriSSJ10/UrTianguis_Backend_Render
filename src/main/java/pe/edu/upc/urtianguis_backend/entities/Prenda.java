@@ -23,6 +23,8 @@ public class Prenda {
     private int Stock;
     @Column(name = "Veces_usada",nullable = false)
     private int Veces_usada;
+    @Column(name = "Imagen",nullable = true)
+    private String Imagen;
     @Column(name = "I_fecha_creacion",nullable = false)
     private LocalDate I_fecha_creacion;
     @Column(name = "I_fecha_modificacion",nullable = false)
@@ -41,7 +43,7 @@ public class Prenda {
     public Prenda() {
     }
 
-    public Prenda(int id_prenda, String nombre, String descripcion, float precio, String talla, int stock, int veces_usada, LocalDate i_fecha_creacion, LocalDate i_fecha_modificacion, String i_creado_por, String i_modificado_por, Tipo_Prenda tp, Tienda ti) {
+    public Prenda(int id_prenda, String nombre, String descripcion, float precio, String talla, int stock, int veces_usada, String imagen, LocalDate i_fecha_creacion, LocalDate i_fecha_modificacion, String i_creado_por, String i_modificado_por, Tipo_Prenda tp, Tienda ti) {
         Id_prenda = id_prenda;
         Nombre = nombre;
         Descripcion = descripcion;
@@ -49,6 +51,7 @@ public class Prenda {
         Talla = talla;
         Stock = stock;
         Veces_usada = veces_usada;
+        Imagen = imagen;
         I_fecha_creacion = i_fecha_creacion;
         I_fecha_modificacion = i_fecha_modificacion;
         I_creado_por = i_creado_por;
@@ -111,6 +114,14 @@ public class Prenda {
 
     public void setVeces_usada(int veces_usada) {
         Veces_usada = veces_usada;
+    }
+
+    public String getImagen() {
+        return Imagen;
+    }
+
+    public void setImagen(String imagen) {
+        Imagen = imagen;
     }
 
     public LocalDate getI_fecha_creacion() {
