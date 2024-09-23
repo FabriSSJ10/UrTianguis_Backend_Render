@@ -45,7 +45,7 @@ public class DepartamentoController {
         return dto;
     }
 
-    @PutMapping
+    @PutMapping("/modificarDepartamentos")
     @PreAuthorize("hasAuthority('ADMINISTRADOR')")
     public  void modificar(@RequestBody DepartamentoDTO dto){
         ModelMapper m=new ModelMapper();
