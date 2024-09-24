@@ -7,7 +7,7 @@ import jakarta.persistence.*;
 public class Notificaciones {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int Id_Notificaciones;
+    private int Id_Notificacion;
     @Column(name = "Confirmacion_Pedido", nullable = false)
     private boolean Confirmacion_Pedido;
     @Column(name = "Confirmacion_Entrega", nullable = false)
@@ -17,18 +17,18 @@ public class Notificaciones {
 
     }
 
-    public Notificaciones(int id_Notificaciones, boolean confirmacion_Pedido, boolean confirmacion_Entrega) {
-        Id_Notificaciones = id_Notificaciones;
+    public Notificaciones(int id_Notificacion, boolean confirmacion_Pedido, boolean confirmacion_Entrega) {
+        Id_Notificacion = id_Notificacion;
         Confirmacion_Pedido = confirmacion_Pedido;
         Confirmacion_Entrega = confirmacion_Entrega;
     }
 
-    public int getId_Notificaciones() {
-        return Id_Notificaciones;
+    public int getId_Notificacion() {
+        return Id_Notificacion;
     }
 
-    public void setId_Notificaciones(int id_Notificaciones) {
-        Id_Notificaciones = id_Notificaciones;
+    public void setId_Notificacion(int id_Notificacion) {
+        Id_Notificacion = id_Notificacion;
     }
 
     public boolean isConfirmacion_Pedido() {

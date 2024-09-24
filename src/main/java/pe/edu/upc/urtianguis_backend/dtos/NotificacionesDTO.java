@@ -1,16 +1,16 @@
 package pe.edu.upc.urtianguis_backend.dtos;
 
 public class NotificacionesDTO {
-    private int Id_Notificaciones;
+    private int Id_Notificacion;
     private boolean Confirmacion_Pedido;
     private boolean Confirmacion_Entrega;
 
-    public int getId_Notificaciones() {
-        return Id_Notificaciones;
+    public int getId_Notificacion() {
+        return Id_Notificacion;
     }
 
-    public void setId_Notificaciones(int id_Notificaciones) {
-        Id_Notificaciones = id_Notificaciones;
+    public void setId_Notificacion(int id_Notificaciones) {
+        Id_Notificacion = id_Notificaciones;
     }
 
     public boolean isConfirmacion_Pedido() {
