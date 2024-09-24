@@ -69,11 +69,11 @@ public class PagoDTO {
         Telefono_cliente = telefono_cliente;
     }
 
-    public Tipo_Pago getTipo_Pago() {
+    public Tipo_Pago getTp() {
         return Tp;
     }
 
-    public void setTipo_Pago(Tipo_Pago tp) {
+    public void setTp(Tipo_Pago tp) {
         Tp = tp;
     }
 }
