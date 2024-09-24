@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.urtianguis_backend.dtos.OutfitDTO;
+import pe.edu.upc.urtianguis_backend.dtos.OutfitPublicaListarDTO;
 import pe.edu.upc.urtianguis_backend.dtos.QuantityOutfitsbyClothesDTO;
 import pe.edu.upc.urtianguis_backend.entities.Outfit;
 import pe.edu.upc.urtianguis_backend.serviceinterface.IOutfitService;
@@ -20,13 +21,22 @@ import java.util.stream.Collectors;
 public class OutfitController {
     @Autowired
     private IOutfitService oS;
-    @GetMapping("/listarOutfits")
+    @GetMapping("/listarOutfitsAdmin")
     public List<OutfitDTO> listar(){
         return oS.list().stream().map(x->{
             ModelMapper m=new ModelMapper();
             return m.map(x,OutfitDTO.class);
         }).collect(Collectors.toList());
     }
+
+    @GetMapping("/listarOutfits")
+    public List<OutfitPublicaListarDTO> listarPublico(){
+        return oS.list().stream().map(x->{
+            ModelMapper m=new ModelMapper();
+            return m.map(x,OutfitPublicaListarDTO.class);
+        }).collect(Collectors.toList());
+    }
+
     @PostMapping("/registrarOutfits")
     public void insertar(@RequestBody OutfitDTO dto){
         ModelMapper m=new ModelMapper();

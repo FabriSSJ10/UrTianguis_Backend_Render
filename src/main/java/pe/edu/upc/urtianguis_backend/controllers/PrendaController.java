@@ -17,13 +17,23 @@ import java.util.stream.Collectors;
 public class PrendaController {
     @Autowired
     private IPrendaService pR;
-    @GetMapping("/listarPrendas")
+    @GetMapping("/listarPrendasAdmin")
+    @PreAuthorize("hasAuthority('ADMINISTRADOR')")
     public List<PrendaDTO> listar(){
         return pR.list().stream().map(x->{
             ModelMapper m=new ModelMapper();
             return m.map(x, PrendaDTO.class);
         }).collect(Collectors.toList());
     }
+
+    @GetMapping("/listarPrendas")
+    public List<PrendaPublicaListarDTO> listarPublico() {
+        return pR.list().stream().map(x->{
+            ModelMapper m=new ModelMapper();
+            return m.map(x, PrendaPublicaListarDTO.class);
+        }).collect(Collectors.toList());
+    }
+
     @PostMapping("/registrarPrendas")
     @PreAuthorize("hasAuthority('VENDEDOR')")
     public void insertar(@RequestBody PrendaDTO dto){

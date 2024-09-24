@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.urtianguis_backend.dtos.CatalogoDTO;
+import pe.edu.upc.urtianguis_backend.dtos.CatalogoPublicaListarDTO;
 import pe.edu.upc.urtianguis_backend.entities.Catalogo;
 import pe.edu.upc.urtianguis_backend.serviceinterface.ICatalogoService;
 
@@ -17,13 +18,22 @@ import java.util.stream.Collectors;
 public class CatalogoController {
     @Autowired
     private ICatalogoService cP;
-    @GetMapping("/listarCatalogos")
+    @GetMapping("/listarCatalogosAdmin")
     public List<CatalogoDTO> listar(){
         return cP.list().stream().map(x->{
             ModelMapper m=new ModelMapper();
             return m.map(x,CatalogoDTO.class);
         }).collect(Collectors.toList());
     }
+
+    @GetMapping("/listarCatalogos")
+    public List<CatalogoPublicaListarDTO> listarPublico(){
+        return cP.list().stream().map(x->{
+            ModelMapper m=new ModelMapper();
+            return m.map(x,CatalogoPublicaListarDTO.class);
+        }).collect(Collectors.toList());
+    }
+
     @PostMapping("/registrarCatalogos")
     public void insertar(@RequestBody CatalogoDTO dto){
         ModelMapper m=new ModelMapper();

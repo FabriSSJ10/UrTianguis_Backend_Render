@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.urtianguis_backend.dtos.Comentario_OutfitDTO;
+import pe.edu.upc.urtianguis_backend.dtos.Comentario_OutfitPublicaListarDTO;
 import pe.edu.upc.urtianguis_backend.entities.Comentario_Outfit;
 import pe.edu.upc.urtianguis_backend.serviceinterface.IComentario_OutfitService;
 
@@ -17,13 +18,22 @@ import java.util.stream.Collectors;
 public class Comentario_OutfitController {
     @Autowired
     private IComentario_OutfitService cS;
-    @GetMapping("/listarComentarios_outfit")
+    @GetMapping("/listarComentarios_outfitAdmin")
     public List<Comentario_OutfitDTO>listar(){
         return cS.list().stream().map(x->{
             ModelMapper m= new ModelMapper();
             return m.map(x,Comentario_OutfitDTO.class);
         }).collect(Collectors.toList());
     }
+
+    @GetMapping("/listarComentarios_outfit")
+    public List<Comentario_OutfitPublicaListarDTO>listarPublico(){
+        return cS.list().stream().map(x->{
+            ModelMapper m= new ModelMapper();
+            return m.map(x,Comentario_OutfitPublicaListarDTO.class);
+        }).collect(Collectors.toList());
+    }
+
     @PostMapping("/registrarComentarios_outfit")
     public void insertar(@RequestBody Comentario_OutfitDTO dto){
         ModelMapper m= new ModelMapper();

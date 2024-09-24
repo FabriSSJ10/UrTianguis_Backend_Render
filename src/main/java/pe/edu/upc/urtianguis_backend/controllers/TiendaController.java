@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import pe.edu.upc.urtianguis_backend.dtos.TiendaDTO;
+import pe.edu.upc.urtianguis_backend.dtos.TiendaPublicaListarDTO;
 import pe.edu.upc.urtianguis_backend.entities.Tienda;
 import pe.edu.upc.urtianguis_backend.serviceinterface.ITiendaService;
 
@@ -16,13 +17,24 @@ import java.util.stream.Collectors;
 public class TiendaController {
     @Autowired
     private ITiendaService tR;
-    @GetMapping("/listarTiendas")
-    public List<TiendaDTO>listar(){
-        return tR.list().stream().map(x->{
-            ModelMapper m=new ModelMapper();
-            return m.map(x,TiendaDTO.class);
+
+    @GetMapping("/listarTiendasAdmin")
+    @PreAuthorize("hasAuthority('ADMINISTRADOR')")
+    public List<TiendaDTO> listar() {
+        return tR.list().stream().map(x -> {
+            ModelMapper m = new ModelMapper();
+            return m.map(x, TiendaDTO.class);
         }).collect(Collectors.toList());
     }
+
+    @GetMapping("/listarTiendas")
+    public List<TiendaPublicaListarDTO>listarPublico(){
+        return tR.list().stream().map(x->{
+            ModelMapper m=new ModelMapper();
+            return m.map(x,TiendaPublicaListarDTO.class);
+        }).collect(Collectors.toList());
+    }
+
     @PostMapping("/registrarTiendas")
     @PreAuthorize("hasAuthority('VENDEDOR')")
     public void insertar(@RequestBody TiendaDTO dto){
